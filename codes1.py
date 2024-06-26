@@ -2,7 +2,7 @@ import random
 
 def guess_the_number():
     print("Welcome to the Guess the Number Game!")
-random3 = random.randint(1, 20)
+random3 = random.randint(1, 50)
 attempts = 0
 best_score = None
 while True:
