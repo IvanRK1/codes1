@@ -1,0 +1,31 @@
+library = {"Великий Гетсбі": {"Автор": "Ф. Скотт Фіцджеральд", "Рік": "1925", "Примірники": "4"},
+"Убити пересмішника": {"Автор": "Харпер Лі", "Рік": "1960", "Примірники": "2"},
+"1984": {"Автор": "Джордж Орвелл", "Рік": "1949", "Примірники": "5",},
+"Гордість і упередження": {"Автор": "Джейн Остін", "Рік": "1813", "Примірники": "4"}}
+print(library)
+library["Якийсь новий світ"] = {"Автор": "Олдос Хакслі", "Рік": "1932", "Примірники": "6"}
+print(library)
+library["1984"]["Примірники"] = "3"
+library["Гордість і упередження"]["Рік"] = "1815"
+
+print(library)
+del library["Убити пересмішника"]
+print(library)
+def get_book_info(title):
+    if title in library:
+       books = library[title]
+       return f'{title} авторства {books["Автор"]} (Видано у {books["Рік"]}) - {books["Примірники"]} примірників доступно'
+    else:
+        return "книгу не знайдено"
+print(get_book_info("1984"))
+print(get_book_info("Ловець у житі"))
+def books_by_author(author):
+    return [title for title, details in library.items() if details["Автор"] == author]
+print(books_by_author("Джордж Орвелл"))
+print(books_by_author("Джоан Роулінг"))
+def total_books():
+    total = 0
+    for book in library.values():
+        total += int(book["Примірники"])
+    return total
+print(total_books())
